@@ -1,0 +1,65 @@
+Welcome to Amazon!
+C. Create new inventory item
+R. Read all inventory items
+U. Update an inventory item
+D. Delete an inventory item
+S. Add an item to the shopping cart
+I. Read all shopping cart items
+N. Update number of items in the shopping cart
+X. Return all of a product from the shopping cart to the inventory
+Q. Quit
+
+c
+oranges
+20
+5.95
+c
+apples
+100
+2
+c
+grapes
+50
+12.99
+c
+kiwis
+10
+8.00
+r
+s
+2
+9
+s
+1
+4
+s
+3
+23
+s
+4
+3
+i
+u 
+1
+boo
+1000
+10000
+n
+1
+1
+i
+r
+d
+1
+r
+i
+x
+2
+r
+i
+q
+q
+q
+
+
+

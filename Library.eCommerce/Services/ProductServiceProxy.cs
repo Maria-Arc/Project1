@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.eCommerce.Services
+namespace Library.eCommerce.Services1
 {
     public class ProductServiceProxy
     {
@@ -67,11 +67,13 @@ namespace Library.eCommerce.Services
                 return null;
             }
 
-            Product? product = Products.FirstOrDefault(p => p.Id == id);
+            Product? product = Products.FirstOrDefault(p => p?.Id == id);
             Products.Remove(product);
 
             return product;
         }
+
+
 
     }
 

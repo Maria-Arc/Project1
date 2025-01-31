@@ -6,27 +6,25 @@ using System.Threading.Tasks;
 
 namespace Spring2025_Samples.Models
 {
-    public class Product
+    public class ShoppingCart
     {
         public int Id { get; set; }
-
         public int Quantity { get; set; }
 
         public double Price { get; set; }
-
         public string? Name { get; set; }
+
+        public ShoppingCart()
+        {
+            Name = string.Empty;
+        }
 
         public string? Display
         {
-            get
+            get 
             {
                 return $"{Id}. {Name}- {Quantity}  ${Price}";
             }
-        }
-
-        public Product()
-        {
-            Name = string.Empty;
         }
 
         public override string ToString()
@@ -34,4 +32,5 @@ namespace Spring2025_Samples.Models
             return Display ?? string.Empty;
         }
     }
+    
 }
