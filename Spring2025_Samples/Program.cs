@@ -30,7 +30,7 @@ namespace MyApp
             Console.WriteLine("Q. Quit");
  
             List<Product?> list = ProductServiceProxy.Current.Products;
-            List<ShoppingCart?> cart = ShoppingCartServiceProxy.Current.Cart;
+            List<Product?> cart = ShoppingCartServiceProxy.Current.Cart;
 
             char choice;
             do
@@ -66,7 +66,7 @@ namespace MyApp
                         if (selectedCart != null)
                         {
                             selectedProd.Name = Console.ReadLine() ?? "ERROR";
-                            selectedProd.Quantity = int.Parse(Console.ReadLine() ?? "-1");
+                            selectedProd.Quantity = int.Parse(Console.ReadLine() ?? "-1") - selectedCart.Quantity;
                             selectedProd.Price = double.Parse(Console.ReadLine() ?? "-1");
                             selectedCart.Name = selectedProd.Name;
                             selectedCart.Price = selectedProd.Price;
@@ -116,7 +116,7 @@ namespace MyApp
                         if (selectedProd != null)
                         {
                             ProductServiceProxy.Current.AddOrUpdate(
-                            ShoppingCartServiceProxy.Current.AddOrUpdate(new ShoppingCart
+                            ShoppingCartServiceProxy.Current.AddOrUpdate(new Product
                             {
                                 Name = selectedProd.Name,
                                 Price = selectedProd.Price

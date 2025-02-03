@@ -11,10 +11,10 @@ namespace Library.eCommerce.Services
 {
     public class ShoppingCartServiceProxy
     {
-        public List<ShoppingCart?> Cart { get; private set; }
+        public List<Product?> Cart { get; private set; }
         private ShoppingCartServiceProxy()
         {
-            Cart = new List<ShoppingCart?>();
+            Cart = new List<Product?>();
         }
 
         private int LastKey
@@ -54,7 +54,7 @@ namespace Library.eCommerce.Services
         //lowkey should have just passed in name
 
         //x = what exists, i = what changing to 
-        public Product AddOrUpdate(ShoppingCart x, Product Product, int i = 0)
+        public Product AddOrUpdate(Product x, Product Product, int i = 0)
         {
            // Console.WriteLine("comparing" + i +  "with" + Product.Quantity + " + " + x.Quantity );
             if (i <= Product.Quantity + x.Quantity )
@@ -83,7 +83,7 @@ namespace Library.eCommerce.Services
             if (x == 0)
                 return null;
 
-            ShoppingCart? item = Cart.FirstOrDefault(p => p?.Id == x);
+            Product? item = Cart.FirstOrDefault(p => p?.Id == x);
             var prod = Product.FirstOrDefault(p => p?.Name == item?.Name);
             prod.Quantity += item.Quantity;
             Cart.Remove(item);
@@ -95,14 +95,14 @@ namespace Library.eCommerce.Services
             return prod;
         }
 
-        public ShoppingCart? Delete(int id)
+        public Product? Delete(int id)
         {
             if (id == 0)
             {
                 return null;
             }
 
-            ShoppingCart? inventory = Cart.FirstOrDefault(p => p.Id == id);
+            Product? inventory = Cart.FirstOrDefault(p => p.Id == id);
             Cart.Remove(inventory);
 
             return inventory;
